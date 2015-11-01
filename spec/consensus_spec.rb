@@ -13,7 +13,7 @@ describe 'A Consensus' do
   it 'needs a proposal' do
     non_proposal = nil
 
-    expect{Consensus.new(non_proposal)}.to raise_error "Needs a proposal"
+    expect{Consensus.new(non_proposal)}.to raise_error from NotProposal
     expect{Consensus.new(@proposal)}.to_not raise_error
   end
 
@@ -60,7 +60,7 @@ describe 'A Consensus' do
 
   it "the introduction phase has a minimum duration " do
     minimum_duration_in_days = 2
-    expect{@consensus.next_phase}.to raise_error "Minimum duration not reached yet"
+    expect{@consensus.next_phase}.to raise_error from MinimumDurationNotReached
   end
 
   describe "when introduction phase minimum duration has passed" do
@@ -72,7 +72,7 @@ describe 'A Consensus' do
     end
 
     it "can not go to next phase whith unaccepted questions " do
-      expect{@consensus.next_phase}.to raise_error 'There are unaccepted questions'
+      expect{@consensus.next_phase}.to raise_error from UnacceptedQuestions
     end
 
     it "can  go to next phase whith all questions are accepted " do

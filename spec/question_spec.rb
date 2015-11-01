@@ -78,7 +78,3 @@ describe 'A Question' do
 
   end
 end
-
-def from(exception)
-  exception.new().message
-end
