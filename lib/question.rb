@@ -69,7 +69,7 @@ class Question
   end
 
   def check_allowed person
-    raise NotAllowed.new unless allowed_to_answer? person 
+    raise NotTheAddressee.new unless allowed_to_answer? person
   end
   
   def not_addressed?

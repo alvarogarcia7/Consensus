@@ -1,4 +1,4 @@
-class NotAllowed < Exception
+class NotTheAddressee < Exception
   def initialize
     super "The question is addressed to another person"
   end
