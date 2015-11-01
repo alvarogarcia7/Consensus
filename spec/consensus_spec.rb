@@ -65,8 +65,8 @@ describe 'A Consensus' do
   describe "when introduction phase minimum duration has passed" do
 
     before do
-      minimum_duration_in_days = 2
-      pass_days minimum_duration_in_days + 1
+      minimum_duration = 2
+      pass_days minimum_duration + 1
       @consensus.address(@clarifying_question)
     end
 
