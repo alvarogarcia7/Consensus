@@ -22,16 +22,16 @@ describe 'A Question' do
   describe 'when addressed' do
     it "only could be answered by the addressed person" do
       @question.address :person
-      expect{@question.answer(:other_than_addressed)}.to raise_error 'The question is addressed to another person'
+      expect{@question.answer(:other_than_addressed)}.to raise_error from NotAllowed
     end
   end
 
   it "must be answered to be accepted " do
-      expect{@question.accept :questioner}.to raise_error 'Must be answered before' 
+      expect{@question.accept :questioner}.to raise_error from Unanswered
   end
 
   it "must be answered to be rejected " do
-      expect{@question.reject :questioner, :any_reason}.to raise_error 'Must be answered before' 
+      expect{@question.reject :questioner, :any_reason}.to raise_error from Unanswered
   end
 
   describe 'when answered' do
@@ -46,7 +46,7 @@ describe 'A Question' do
     end
 
     it "must be accepted by the questioner" do
-      expect{@question.accept :anybody}.to raise_error 'This action must be made by the questioner'
+      expect{@question.accept :anybody}.to raise_error from NotQuestioner
     end
 
     it "can be rejected with a reason" do
@@ -55,7 +55,7 @@ describe 'A Question' do
     end
 
     it "must be rejected by the questioner" do
-      expect{@question.reject :anybody, :any_reason}.to raise_error 'This action must be made by the questioner'
+      expect{@question.reject :anybody, :any_reason}.to raise_error from NotQuestioner
     end
 
   end
@@ -77,4 +77,8 @@ describe 'A Question' do
     end
 
   end
+end
+
+def from(exception)
+  exception.new().message
 end
