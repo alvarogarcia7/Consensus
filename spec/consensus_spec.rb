@@ -59,7 +59,6 @@ describe 'A Consensus' do
   end
 
   it "the introduction phase has a minimum duration " do
-    minimum_duration_in_days = 2
     expect{@consensus.next_phase}.to raise_error "Minimum duration not reached yet"
   end
 
