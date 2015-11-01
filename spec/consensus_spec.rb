@@ -27,7 +27,7 @@ describe 'A Consensus' do
     expect(@consensus.status).to eq 'Introduction'
   end
 
-  it "accepts question in the introduccion phase" do
+  it "accepts question in the introduction phase" do
     @consensus.address(@clarifying_question)
     expect(@consensus.any_questions?).to eq true
   end
@@ -74,7 +74,7 @@ describe 'A Consensus' do
       expect{@consensus.next_phase}.to raise_error 'There are unaccepted questions'
     end
 
-    it "can  go to next phase whith all questions are accepted " do
+    it "can  go to next phase with all questions are accepted " do
       @clarifying_question.answer :proposer 
       @clarifying_question.accept :questioner
       expect{@consensus.next_phase}.not_to raise_error 
