@@ -4,7 +4,7 @@ class NotAllowed < Exception
   end
 end
 
-class NotQuestioner < Exception
+class NotTheQuestioner < Exception
   def initialize
     super 'This action must be made by the questioner'
   end

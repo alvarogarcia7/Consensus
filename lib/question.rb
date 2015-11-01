@@ -65,7 +65,7 @@ class Question
   end
 
   def check_is_questioner person
-    raise NotQuestioner.new unless questioner? person
+    raise NotTheQuestioner.new unless questioner? person
   end
 
   def check_allowed person
