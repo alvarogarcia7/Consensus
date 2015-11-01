@@ -61,7 +61,7 @@ class Question
   private 
 
   def check_answered
-    raise Unanswered.new unless answered?
+    raise UnansweredQuestions.new unless answered?
   end
 
   def check_is_questioner person

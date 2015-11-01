@@ -10,7 +10,7 @@ class NotTheQuestioner < Exception
   end
 end
 
-class Unanswered < Exception
+class UnansweredQuestions < Exception
   def initialize
     super 'Must be answered before'
   end
