@@ -66,7 +66,7 @@ describe 'A Consensus' do
 
     before do
       minimum_duration_in_days = 2
-      time_passes minimum_duration_in_days + 1
+      pass_days minimum_duration_in_days + 1
       @consensus.address(@clarifying_question)
     end
 
@@ -88,7 +88,7 @@ describe 'A Consensus' do
     end
   end
 
-  def time_passes days
+  def pass_days days
     new_time = Time.now + (days*24*60*60)
     allow(Time).to receive(:now).and_return(Time.new(new_time.to_i))
   end
