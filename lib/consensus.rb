@@ -53,7 +53,7 @@ class Consensus
   end
 
   def check_proposal subject
-    raise NotProposal.new unless subject.is_a? Proposal
+    raise HasNoProposal.new unless subject.is_a? Proposal
   end
 
   def accept_proposal proposal

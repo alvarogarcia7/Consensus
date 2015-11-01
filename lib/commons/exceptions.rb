@@ -16,7 +16,7 @@ class Unanswered < Exception
   end
 end
 
-class NotProposal < Exception
+class HasNoProposal < Exception
   def initialize
     super 'Needs a proposal'
   end
